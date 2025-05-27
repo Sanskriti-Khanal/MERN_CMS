@@ -234,3 +234,13 @@ export const resetPassword = async (req, res) => {
 
     
 };
+
+export const getAllUser = async (req, res) =>{
+    const user = await userModel.find().select("-password")
+
+    if(user){
+        res.json(user)
+    }else{
+        res.status(404).json({success: false, message: "Users not found"})
+    }
+}
