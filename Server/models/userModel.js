@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
     verifyotpExpiredAt:{type:Number,default:0},
     isAccountVerified:{type:Boolean,default:false},
     resetOtp:{type:String,default:''},
-    resetotpExpiredAt:{type:Number,default:0}
+    resetotpExpiredAt:{type:Number,default:0},
+    role:{type:String,required:true,enum:["educator","student"]}
 
 })
 

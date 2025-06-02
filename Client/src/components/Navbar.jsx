@@ -1,34 +1,34 @@
-import React from 'react';
-import { Sun } from 'lucide-react'; // use: npm install lucide-react
+import React from 'react'
 
-const Navbar = () => {
+
+const Header = () => {
   return (
-    <nav className="w-full bg-[#1d1f20] text-white font-inter">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-        
-        {/* Logo and Brand */}
-        <div className="flex items-center gap-3">
-          <img src="/favicon.png" alt="Logo" className="h-10 w-10" />
-          <span className="text-xl font-bold uppercase tracking-wide">Stack Security</span>
+    <header className="w-full bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <img src="/favicon.png" alt="LMS Logo" className="h-10 w-10" />
+          <span className="text-xl font-semibold text-[#1d1f20]">LMS</span>
         </div>
 
-        {/* Navigation Links */}
-        <ul className="hidden md:flex items-center gap-10 text-lg font-light">
-          <li><a href="#" className="hover:text-gray-200">Home</a></li>
-          <li><a href="#courses" className="hover:text-gray-300">Courses</a></li>
-          <li><a href="#Blogs" className="hover:text-gray-300">Blogs</a></li>
-          <li><a href="#Products" className="hover:text-gray-300">Products</a></li>
-          <li><a href="#About" className="hover:text-gray-300">About</a></li>
-          <li><Sun className="w-5 h-5" /></li>
-        </ul>
+        {/* Navigation */}
+        <nav className="hidden md:flex space-x-6 text-[#1d1f20] font-medium">
+          <a href="#" className="hover:text-orange-500">Home</a>
+          <a href="#" className="hover:text-orange-500">Course</a>
+          <a href="#" className="hover:text-orange-500">Pages</a>
+          <a href="#" className="hover:text-orange-500">Shortcodes</a>
+          <a href="#" className="hover:text-orange-500">Shop</a>
+          <a href="#" className="hover:text-orange-500">Blog</a>
+        </nav>
 
-        {/* Log In Button */}
-        <button className="ml-4 bg-[#f5f4ef] text-black text-lg font-medium px-4 py-1.5 rounded-md hover:bg-gray-300 transition">
-          Log In
-        </button>
+        {/* Login/Register */}
+        <div className="hidden md:flex space-x-4">
+          <button className="text-[#1d1f20] font-medium hover:text-orange-500">Login</button>
+          <button className="bg-orange-500 text-white px-4 py-1 rounded hover:bg-orange-600">Register</button>
+        </div>
       </div>
-    </nav>
-  );
-};
+    </header>
+  )
+}
 
-export default Navbar;
+export default Header
