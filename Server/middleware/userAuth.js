@@ -1,6 +1,6 @@
 import jwt  from "jsonwebtoken";
 
- const Auth = async (req,res,next)=>{
+ export const Auth = async (req,res,next)=>{
     const{token} = req.cookies;
 
     if(!token){
@@ -24,7 +24,7 @@ import jwt  from "jsonwebtoken";
     
 
 }
- const verifyToken = async(req, res, next) =>{
+ export const verifyToken = async(req, res, next) =>{
     let token;
     let authHeader =  req.headers.Authorization || req.headers.authorization
     if(authHeader && authHeader.startsWith("Bearer")){
@@ -47,4 +47,3 @@ import jwt  from "jsonwebtoken";
 };
 
 
-export default {Auth,verifyToken};

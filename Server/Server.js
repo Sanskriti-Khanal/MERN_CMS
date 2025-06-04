@@ -3,10 +3,9 @@ import cors from "cors";
 // import 'dotenv/config'
 import cookieParser from "cookie-parser";
 import {connectDB} from './Config/mongodb.js'
-import authRouter from './routes/authRoutes.js'
+import {authRouter} from './routes/authRoutes.js'
 import dotenv from "dotenv"
-
-import userRouter from "./routes/userRoutes.js";
+import { Auth, verifyToken, } from "./middleware/userAuth.js";
 dotenv.config()
 
 const app = express();
@@ -18,10 +17,14 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({credentials:true}))
 
+app.use(Auth,verifyToken);
+
 //APT Endpoints
 app.get('/',(req,res)=>res.send("API Working fine"));
 app.use('/api/auth', authRouter)
-app.use('/api/user', userRouter) // ✅ Fixed path
+app.use('/api/user', authRouter)
+
+
 
 
 
